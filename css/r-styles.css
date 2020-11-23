@@ -1422,7 +1422,7 @@ input[type='checkbox'] {
 }
 
 .lightbox-basic img {
-	margin-right: auto;
+	margin-right: 50rem;
 	margin-bottom: 2rem;
 	margin-left: auto;
 	border-radius: 0.25rem;
