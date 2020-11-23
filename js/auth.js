@@ -7,10 +7,8 @@
  if (username === "riddhu" && password === "dotb")
  {
  //alert("You have successfully logged in.");
- location.replace("riddhu_eDDimklmkJNIgvbuycrtf.html");
- }
+ location.replace("riddhu_eDDimklmkJNIgvbuycrtf.html"); }
  else {
  //loginErrorMsg.style.opacity = 1;
- alert("Incorrect Username/Password"); 
-} }
-)
+ alert("Incorrect Username/Password");
+} })
