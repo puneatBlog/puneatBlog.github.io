@@ -808,22 +808,31 @@ input[type='checkbox'] {
 .basic-1 {
 	padding-top: 6.5rem;
 	padding-bottom: 3rem;
+	background-color: #153E52;
+	color: #fff;
 }
 
 .basic-1 .text-container {
 	margin-bottom: 3rem;
+
 }
 
 .basic-1 .section-title {
-	margin-bottom: 0.5rem;
+
 }
 
 .basic-1 h2 {
 	margin-bottom: 1.375rem;
+	color: #fff;
+}
+
+.basic-1 p{
+	color: #fff;
 }
 
 .basic-1 .testimonial-author {
 	color: #484a46;
+	color: #fff;
 }
 
 /* Hover Animation */
