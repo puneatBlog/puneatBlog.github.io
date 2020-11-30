@@ -69,6 +69,10 @@
                     <a class="nav-link page-scroll" href="login.html">SIGN-IN <span class="sr-only">(current)</span></a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#subscribe">SUBSCRIBE <span class="sr-only">(current)</span></a>
+                </li>
+
 
                 <!-- Dropdown Menu -->          
                 <li class="nav-item dropdown">
@@ -153,6 +157,57 @@
     </div> <!-- end of basic-1 -->
     <!-- end of intro -->
 
+<!-- Call Me -->
+    <div id="subscribe" class="form-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="text-container">
+                        <div class="section-title">SUBSCRIBE</div>
+                        <h2 class="white">Get Notifications For New Blog Posts And Other Stuff.</h2>
+                        <p class="white">You'll get an email everytime I post something new. That means everytime. However, you can choose the frequency of alerts.</p>
+                        
+                    </div>
+                </div> <!-- end of col -->
+                <div class="col-lg-6">
+                   
+                    <!-- Call Me Form -->
+                    <form id="callMeForm" data-toggle="validator" data-focus="false" action="https://formspree.io/f/mdoplpey" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control-input" id="lname" name="name" required>
+                            <label class="label-control" for="lname">Name</label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" class="form-control-input" id="lemail" name="email" required>
+                            <label class="label-control" for="lemail">Email</label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-control-select" id="lselect" required>
+                                <option class="select-option" value="" disabled selected>Frequency</option>
+                                <option class="select-option" value="Everytime">Everytime (100%)</option>
+                                <option class="select-option" value="Every Second Time">Every Second Time (50%)</option>
+                                <option class="select-option" value="Rarely">Rarely (25%)</option>
+                            </select>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="form-control-submit-button">SUBSCRIBE</button>
+                        </div>
+                        <div class="form-message">
+                            <div id="lmsgSubmit" class="h3 text-center hidden"></div>
+                        </div>
+                    </form>
+                    <!-- end of call me form -->
+                    
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of form-1 -->
+    <!-- end of call me -->
 
 
 
