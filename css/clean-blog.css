@@ -272,6 +272,14 @@ header.masthead .post-heading .meta a {
   color: #212529;
 }
 
+.post-preview:hover h2 {
+    color: #16a596;
+}
+
+.post-subtitle:hover h3 {
+    color: #16a596;
+}
+
 .post-preview > a:focus, .post-preview > a:hover {
   text-decoration: none;
   color: #0085A1;
