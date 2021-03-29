@@ -27,10 +27,10 @@
 				type:"post",
 				data:$("#myForm").serializeArray(),
 				success: function(){
-					alert("Form Data Submitted :)")
+					alert("Annoyed Level Updated :(")
 				},
 				error: function(){
-					alert("There was an error :(")
+					alert("Annoyed Level Update Failed :)")
 				}
 			});
 		}
@@ -71,9 +71,9 @@
 					<iframe width="310" height="90" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQP8FhB-Oh_e-TGpE-g66elMqiZWCD-vRn8CAOOBwJNgWKel7lTxtcMBPecHqR0e6Oa6ZJ0pxEq8YF1/pubhtml?gid=0&amp;single=true&amp;widget=false&amp;
 					range=D1:F3&amp;chrome=false&amp;headers=false"></iframe> -->
 
-		<font color = 'white'><form id="myForm">
+		<font color = 'white' size=6><form id="myForm">
 		<label>Puneet Annoyed Me</label>
-		<input name="Annoyed_1" />
+		<input name="Annoyed_1" value=1 />
 		<br/>
 <!-- 		<label>Puneet Irritated Me</label>
 		<input name="Irritated_1" />
@@ -82,7 +82,7 @@
 		<input name="Ignored_1" />
 		<br/> -->
 	</form></font>
-	<button onclick='SubForm()' id='submit_btn'><font color = 'black'>Submit</font></button>
+	<button onclick='SubForm()' id='submit_btn'><font color = 'black'>Update</font></button>
 
 
 					</div>
