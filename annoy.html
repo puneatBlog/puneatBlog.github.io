@@ -19,33 +19,23 @@
 		src="https://code.jquery.com/jquery-3.4.1.js"
 		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 		crossorigin="anonymous"></script>
-	<script>
-		function annoyUpdate (){
-			fetch("https://api.apispreadsheets.com/data/1023/?query=SELECTAnnoyedFROM10216WHEREPerson='riddhu'/").then(res=>{
-	if (res.status === 200){
-		// SUCCESS
-		res.json().then(data=>{
-			const riddhuAnnoy = data
-		}).catch(err => console.log(err))
-	}
-	else{
-		// ERROR
-	}
-})
 
-			fetch("https://api.apispreadsheets.com/data/10216/", {
-				method: "POST",
-				body: JSON.stringify({"data": {"Annoyed":riddhuAnnoy+1}, "query": "SELECTAnnoyedFROM10216WHEREPerson='riddhu'"}),
-}).then(res =>{
-	if (res.status === 201){
-		// SUCCESS
-	}
-	else{
-		// ERROR
-	}
-})
+	<script>
+		function SubForm (){
+			$.ajax({
+				url:"https://api.apispreadsheets.com/data/10216/",
+				type:"post",
+				data:$("#myForm").serializeArray(),
+				success: function(){
+					alert("Form Data Submitted :)")
+				},
+				error: function(){
+					alert("There was an error :(")
+				}
+			});
 		}
 	</script>
+
 		
 	</head>
 
@@ -66,26 +56,208 @@
 				<div class="row cb-slideshow-text-container ">
 					<div class= "tm-content col-xl-6 col-sm-8 col-xs-8 ml-auto section">
 					<header class="mb-5"><h1>Why. Just Why. WHY???</h1></header>
-					<P class="mb-5">Number of Times You Have Annoyed, Ignored, and Irritated Me.</P>
-					<!-- <h1><span id="js-rotating"><font size="73">+1 ANNOYED, +2 IRRITATED, +1 IGNORED</font></span></h1> -->
-					<iframe width="390" height="90" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQP8FhB-Oh_e-TGpE-g66elMqiZWCD-vRn8CAOOBwJNgWKel7lTxtcMBPecHqR0e6Oa6ZJ0pxEq8YF1/pubhtml?gid=0&amp;single=true&amp;widget=false&amp;
-					range=A1:D3&amp;chrome=false&amp;headers=false"></iframe>
+					<P class="mb-5">Number of Times Riddhu Has Annoyed, Ignored, and Irritated Puneet.</P>
+					<h1><font size="73"><div id="p_an"> </div></font></h1>
+					<h1><font size="73"><div id="p_ir"> </div></font></h1>
+					<h1><font size="73"><div id="p_ig"> </div></font></h1>
 
-		<form id="myForm">
-		<button onclick='annoyUpdate()'>Annoyed</button>
+					<P class="mb-5">Number of Times Puneet Has Annoyed, Ignored, and Irritated Riddhu.</P>
+					<h1><font size="73"><div id="r_an"> </div></font></h1>
+					<h1><font size="73"><div id="r_ir"> </div></font></h1>
+					<h1><font size="73"><div id="r_ig"> </div></font></h1>
+
+<!-- 					<iframe width="300" height="90" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQP8FhB-Oh_e-TGpE-g66elMqiZWCD-vRn8CAOOBwJNgWKel7lTxtcMBPecHqR0e6Oa6ZJ0pxEq8YF1/pubhtml?gid=0&amp;single=true&amp;widget=false&amp;
+					range=A1:C3&amp;chrome=false&amp;headers=false"></iframe><br>
+					<iframe width="310" height="90" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQP8FhB-Oh_e-TGpE-g66elMqiZWCD-vRn8CAOOBwJNgWKel7lTxtcMBPecHqR0e6Oa6ZJ0pxEq8YF1/pubhtml?gid=0&amp;single=true&amp;widget=false&amp;
+					range=D1:F3&amp;chrome=false&amp;headers=false"></iframe> -->
+
+		<font color = 'white'><form id="myForm">
+		<label>Puneet Annoyed Me</label>
+		<input name="Annoyed_1" />
 		<br/>
-		<button onclick='irrateUpdate()'>Irritated</button>
+		<label>Puneet Irritated Me</label>
+		<input name="Irritated_1" />
 		<br/>
-		<button onclick='ignoreUpdate()'>Ignored</button>
+		<label>Puneet Ignored Me</label>
+		<input name="Ignored_1" />
 		<br/>
-	</form>
+	</form></font>
+	<button onclick='SubForm()' id='submit_btn'><font color = 'black'>Submit</font></button>
 
 
 					</div>
 
 				</div>	
 			</div>
+
+<script>
+	fetch("https://api.apispreadsheets.com/data/10216/?dataFormat=column").then(res=>{
+	if (res.status === 200){
+		// SUCCESS
+		res.json().then(data=>document.getElementById('p_an').innerHTML = '+ ' + data["Annoyed_2"][0]+' ANNOYED')
+	}
+	else{
+		// ERROR
+	}
+})
+</script>
+
+<script>
+	fetch("https://api.apispreadsheets.com/data/10216/?dataFormat=column").then(res=>{
+	if (res.status === 200){
+		// SUCCESS
+		res.json().then(data=>document.getElementById('p_ir').innerHTML = '+ ' + data["Irritated_2"][0]+' IRRITATED')
+	}
+	else{
+		// ERROR
+	}
+})
+</script>
+
+<script>
+	fetch("https://api.apispreadsheets.com/data/10216/?dataFormat=column").then(res=>{
+	if (res.status === 200){
+		// SUCCESS
+		res.json().then(data=>document.getElementById('p_ig').innerHTML = '+ ' + data["Ignored_2"][0]+' IGNORED')
+	}
+	else{
+		// ERROR
+	}
+})
+</script>
+
+
+<script>
+	fetch("https://api.apispreadsheets.com/data/10216/?dataFormat=column").then(res=>{
+	if (res.status === 200){
+		// SUCCESS
+		res.json().then(data=>document.getElementById('r_an').innerHTML = '+ ' + data["Annoyed_1"][0]+' ANNOYED')
+	}
+	else{
+		// ERROR
+	}
+})
+</script>
+
+<script>
+	fetch("https://api.apispreadsheets.com/data/10216/?dataFormat=column").then(res=>{
+	if (res.status === 200){
+		// SUCCESS
+		res.json().then(data=>document.getElementById('r_ir').innerHTML = '+ ' + data["Irritated_1"][0]+' IRRITATED')
+	}
+	else{
+		// ERROR
+	}
+})
+</script>
+
+<script>
+	fetch("https://api.apispreadsheets.com/data/10216/?dataFormat=column").then(res=>{
+	if (res.status === 200){
+		// SUCCESS
+		res.json().then(data=>document.getElementById('r_ig').innerHTML = '+ ' + data["Ignored_1"][0]+' IGNORED')
+	}
+	else{
+		// ERROR
+	}
+})
+</script>
+
+<!-- ----------------------------------------------------------------------------------- -->
+
+	<script>
+		document.getElementById("submit_btn").addEventListener("click", p_an_func);
+
+function p_an_func() {
+	fetch("https://api.apispreadsheets.com/data/10216/?dataFormat=column").then(res=>{
+	if (res.status === 200){
+		// SUCCESS
+		res.json().then(data=>document.getElementById('p_an').innerHTML = '+ ' + data["Annoyed_2"][0]+' ANNOYED')
+	}
+	else{
+		// ERROR
+	}
+})}
+</script>
+
+<script>
+			document.getElementById("submit_btn").addEventListener("click", p_ir_func);
+
+function p_ir_func() {
+	fetch("https://api.apispreadsheets.com/data/10216/?dataFormat=column").then(res=>{
+	if (res.status === 200){
+		// SUCCESS
+		res.json().then(data=>document.getElementById('p_ir').innerHTML = '+ ' + data["Irritated_2"][0]+' IRRITATED')
+	}
+	else{
+		// ERROR
+	}
+})}
+</script>
+
+<script>
+			document.getElementById("submit_btn").addEventListener("click", p_ig_func);
+
+function p_ig_func() {
+	fetch("https://api.apispreadsheets.com/data/10216/?dataFormat=column").then(res=>{
+	if (res.status === 200){
+		// SUCCESS
+		res.json().then(data=>document.getElementById('p_ig').innerHTML = '+ ' + data["Ignored_2"][0]+' IGNORED')
+	}
+	else{
+		// ERROR
+	}
+})}
+</script>
+
+
+<script>
+			document.getElementById("submit_btn").addEventListener("click", r_an_func);
+
+function r_an_func() {
+	fetch("https://api.apispreadsheets.com/data/10216/?dataFormat=column").then(res=>{
+	if (res.status === 200){
+		// SUCCESS
+		res.json().then(data=>document.getElementById('r_an').innerHTML = '+ ' + data["Annoyed_1"][0]+' ANNOYED')
+	}
+	else{
+		// ERROR
+	}
+})}
+</script>
+
+<script>
+				document.getElementById("submit_btn").addEventListener("click", r_ir_func);
+
+function r_ir_func() {
+	fetch("https://api.apispreadsheets.com/data/10216/?dataFormat=column").then(res=>{
+	if (res.status === 200){
+		// SUCCESS
+		res.json().then(data=>document.getElementById('r_ir').innerHTML = '+ ' + data["Irritated_1"][0]+' IRRITATED')
+	}
+	else{
+		// ERROR
+	}
+})}
+</script>
+
+<script>
+				document.getElementById("submit_btn").addEventListener("click", r_ig_func);
+
+function r_ig_func() {
+	fetch("https://api.apispreadsheets.com/data/10216/?dataFormat=column").then(res=>{
+	if (res.status === 200){
+		// SUCCESS
+		res.json().then(data=>document.getElementById('r_ig').innerHTML = '+ ' + data["Ignored_1"][0]+' IGNORED')
+	}
+	else{
+		// ERROR
+	}
+})}
+</script>
 	</body>
+
+
 
 	<script type="text/javascript" src="js/particles.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
