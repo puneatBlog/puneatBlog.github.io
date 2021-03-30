@@ -73,8 +73,13 @@
 
 		<font color = 'white' size=6><form id="myForm">
 		<label>Puneet Annoyed Me</label>
-		<input name="Annoyed_1" type="text" value=1 style="width: 75px;"/>
+		<input name="Annoyed_r" type="text" value=1 style="width: 75px;"/>
 		<br/>
+
+		<label>Riddhu Annoyed Me</label>
+		<input name="Annoyed_p" type="text" value=0 style="width: 75px;"/>
+		<br/>
+
 <!-- 		<label>Puneet Irritated Me</label>
 		<input name="Irritated_1" />
 		<br/>
@@ -94,7 +99,7 @@
 	fetch("https://api.apispreadsheets.com/data/10216/?dataFormat=column").then(res=>{
 	if (res.status === 200){
 		// SUCCESS
-		res.json().then(data=>document.getElementById('p_an').innerHTML = '+ ' + data["Annoyed_2"][0]+' ANNOYED')
+		res.json().then(data=>document.getElementById('p_an').innerHTML = '+ ' + data["Annoyed_p"][0]+' ANNOYED')
 	}
 	else{
 		// ERROR
@@ -131,7 +136,7 @@
 	fetch("https://api.apispreadsheets.com/data/10216/?dataFormat=column").then(res=>{
 	if (res.status === 200){
 		// SUCCESS
-		res.json().then(data=>document.getElementById('r_an').innerHTML = '+ ' + data["Annoyed_1"][0]+' ANNOYED')
+		res.json().then(data=>document.getElementById('r_an').innerHTML = '+ ' + data["Annoyed_r"][0]+' ANNOYED')
 	}
 	else{
 		// ERROR
@@ -172,7 +177,7 @@ function p_an_func() {
 	fetch("https://api.apispreadsheets.com/data/10216/?dataFormat=column").then(res=>{
 	if (res.status === 200){
 		// SUCCESS
-		res.json().then(data=>document.getElementById('p_an').innerHTML = '+ ' + data["Annoyed_2"][0]+' ANNOYED')
+		res.json().then(data=>document.getElementById('p_an').innerHTML = '+ ' + data["Annoyed_p"][0]+' ANNOYED')
 	}
 	else{
 		// ERROR
@@ -218,7 +223,7 @@ function r_an_func() {
 	fetch("https://api.apispreadsheets.com/data/10216/?dataFormat=column").then(res=>{
 	if (res.status === 200){
 		// SUCCESS
-		res.json().then(data=>document.getElementById('r_an').innerHTML = '+ ' + data["Annoyed_1"][0]+' ANNOYED')
+		res.json().then(data=>document.getElementById('r_an').innerHTML = '+ ' + data["Annoyed_r"][0]+' ANNOYED')
 	}
 	else{
 		// ERROR
